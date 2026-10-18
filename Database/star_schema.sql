@@ -50,7 +50,8 @@ CREATE TABLE star_schema.dim_date (
 );
 
 CREATE TABLE star_schema.dim_sale_channel (
-    sales_channel_id SMALLINT PRIMARY KEY
+    sales_channel_id SMALLINT PRIMARY KEY,
+    sales_channel_name VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE star_schema.fact_sales (
@@ -82,7 +83,7 @@ CREATE TABLE star_schema.fact_sales (
     CHECK (sales_revenue >= 0)
 );
 
-INSERT INTO star_schema.dim_sales_channel (
+INSERT INTO star_schema.dim_sale_channel (
     sales_channel_id,
     sales_channel_name
 )
@@ -90,3 +91,4 @@ VALUES
     (1, 'Store'),
     (2, 'Online')
 ON CONFLICT (sales_channel_id) DO NOTHING;
+
