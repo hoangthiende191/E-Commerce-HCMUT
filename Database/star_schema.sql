@@ -81,3 +81,12 @@ CREATE TABLE star_schema.fact_sales (
     CHECK (price >= 0),
     CHECK (sales_revenue >= 0)
 );
+
+INSERT INTO star_schema.dim_sales_channel (
+    sales_channel_id,
+    sales_channel_name
+)
+VALUES
+    (1, 'Store'),
+    (2, 'Online')
+ON CONFLICT (sales_channel_id) DO NOTHING;
