@@ -1,21 +1,31 @@
 -- EXPLAIN ANALYZE 
--- Star schema
 SELECT 
-    a.product_code,
-    a.prod_name,
-    SUM(f.quantity) AS total_quantity_sold,
-    SUM(f.sales_revenue) AS total_revenue
-FROM FACT_SALES f
--- FROM contains f
-JOIN dim_article a ON f.article_id = a.article_id
-GROUP BY 
-    a.product_code, 
-    a.prod_name
+    product_code,
+    prod_name,
+    total_units_sold AS total_quantity_sold,
+    total_revenue
+FROM star_schema.vw_product_performance
 ORDER BY 
     total_quantity_sold DESC
 LIMIT 10;
 
+-- Star schema
+-- SELECT 
+--     a.product_code,
+--     a.prod_name,
+--     SUM(f.quantity) AS total_quantity_sold,
+--     SUM(f.sales_revenue) AS total_revenue
+-- FROM FACT_SALES f
+-- -- FROM contains f
+-- JOIN dim_article a ON f.article_id = a.article_id
+-- GROUP BY 
+--     a.product_code, 
+--     a.prod_name
+-- ORDER BY 
+--     total_quantity_sold DESC
+-- LIMIT 10;
 
+--Normal
 -- SELECT 
 --     p.prod_name,
 --     p.product_code,

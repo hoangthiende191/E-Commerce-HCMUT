@@ -1,9 +1,9 @@
 --EXPLAIN ANALYZE
 SELECT 
-    SUM(quantity) AS total_units_sold
-FROM FACT_SALES;
+    total_units_sold
+FROM star_schema.vw_sales_kpi;
 
 -- SELECT 
 --     SUM(quantity) AS total_units_sold
--- FROM contains;
--- --SEQ scan
+-- FROM FACT_SALES;
+

@@ -1,8 +1,10 @@
 --EXPLAIN ANALYZE
+
+--EXPLAIN ANALYZE
 SELECT 
-    SUM(sales_revenue) AS total_revenue
-FROM FACT_SALES;
+    total_revenue
+FROM star_schema.vw_sales_kpi;
 
 -- SELECT 
---     SUM(price * quantity) AS total_revenue
--- FROM contains;
+--     SUM(sales_revenue) AS total_revenue
+-- FROM FACT_SALES;

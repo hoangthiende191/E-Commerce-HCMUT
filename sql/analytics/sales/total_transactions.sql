@@ -1,8 +1,9 @@
--- --EXPLAIN ANALYZE
+--EXPLAIN ANALYZE
+
 SELECT 
-    COUNT(DISTINCT transaction_id) AS total_transactions
-FROM FACT_SALES;
+    total_transactions
+FROM star_schema.vw_sales_kpi;
 
 -- SELECT 
---     COUNT(transaction_id) AS total_transactions 
--- FROM transaction;
+--     COUNT(DISTINCT transaction_id) AS total_transactions
+-- FROM FACT_SALES;
